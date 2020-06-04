@@ -1,0 +1,10 @@
+{
+  "name": "be.coloniuslory.radialmenu",
+  "displayName": "Radial Menu's Lory",
+  "version": "0.0.1",
+  "unity": "2018.1",
+  "description": "this is a radial menu",
+  "keywords": ["Script","Tool"],
+  "category": "Script",
+  "dependencies":{}
+}
