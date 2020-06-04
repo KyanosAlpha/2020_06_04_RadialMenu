@@ -23,6 +23,13 @@ public class CircularMenu : MonoBehaviour
     {
 
         menuItems = buttons.Count;
+        foreach(MenuButton button in buttons)
+        {
+            button.sceneimage.color = button.NormalColor;
+
+        }
+        curMenuItem = 0;
+        oldMenuItem = 0;
 
     }
 
@@ -30,7 +37,7 @@ public class CircularMenu : MonoBehaviour
     void Update()
     {
         GetCurrentMenuItem();
-        if (Input.GetButtonDown("Firel"))
+        if (Input.GetButtonDown("Fire1"))
             ButtonAction();
         
     }
@@ -51,9 +58,10 @@ public class CircularMenu : MonoBehaviour
 
         if(curMenuItem != oldMenuItem)
         {
-            buttons(oldMenuItem).sceneimage.color = buttons(oldMenuItem).NormalColor;
+            
+            buttons[oldMenuItem].sceneimage.color = buttons[oldMenuItem].NormalColor;
             oldMenuItem = curMenuItem;
-            buttons(oldMenuItem).sceneimage.color = buttons(oldMenuItem).NormalColor.HighlightedColor;
+            buttons[curMenuItem].sceneimage.color = buttons[curMenuItem].HighlightedColor;
             
 
         }
@@ -61,7 +69,7 @@ public class CircularMenu : MonoBehaviour
 
     public void ButtonAction()
     {
-        buttons(curMenuItem).sceneimage.color = buttons(curMenuItem).PressedColor;
+        buttons[curMenuItem].sceneimage.color = buttons [curMenuItem].PressedColor;
         if (curMenuItem == 0)
             print("You have pressed the first button");
     }
@@ -74,5 +82,6 @@ public class MenuButton
     public Image sceneimage;
     public Color NormalColor = Color.white;
     public Color HighlightedColor = Color.grey;
+    public Color PressedColor = Color.gray;
 
 }
